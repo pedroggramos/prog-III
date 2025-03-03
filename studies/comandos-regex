@@ -1,0 +1,44 @@
+Expressões Regulares - Guia Completo
+1) Caracteres Simples
+------------------------------------------
+. -> Qualquer caractere
+[a-z] -> Letras minúsculas de 'a' a 'z'
+[A-Z] -> Letras maiúsculas de 'A' a 'Z'
+[0-9] -> Qualquer número de 0 a 9
+\p{L} -> Qualquer letra (com acentos)
+\p{N} -> Qualquer número
+2) Quantificadores
+------------------------------------------
+* -> 0 ou mais vezes (ex: a*)
++ -> 1 ou mais vezes (ex: a+)
+? -> 0 ou 1 vez (opcional) (ex: colou?r)
+{n} -> Exatamente n vezes (ex: a{3})
+{n,} -> Pelo menos n vezes (ex: a{2,})
+{n,m} -> Entre n e m vezes (ex: a{2,4})
+3) Âncoras e Fronteiras
+------------------------------------------
+^ -> Início da string (ex: ^Hello)
+$ -> Fim da string (ex: world$)
+\b -> Fronteira de palavra (ex: \bcar\b)
+\B -> Não está na fronteira (ex: \Bcar\B)
+4) Classes de Caracteres
+------------------------------------------
+\d -> Dígito (0-9)
+\D -> Não dígito
+\w -> Palavra (letras, números, _)
+\W -> Não palavra (símbolos, espaços)
+\s -> Espaço em branco
+\S -> Não espaço
+5) Grupos e Alternâncias
+------------------------------------------
+| -> OU (ex: cat|dog)
+() -> Grupo de captura (ex: (ab)+)
+(?:...) -> Grupo sem captura (ex: (?:ab)+)
+6) Exemplos Completos
+------------------------------------------
+^\d{4}-\d{2}-\d{2}$ -> Data "YYYY-MM-DD"
+^[a-zA-Z ]{1,40}$ -> Nome com letras e espaços
+^\w+@\w+\.\w{2,3}$ -> E-mail simples
+^\+?\d{0,3}-?\d{7,10}$ -> Número de telefone
+Aceitar absolutamente tudo:
+^.{1,40}$ -> Qualquer caractere, entre 1 e 40 caracteres
