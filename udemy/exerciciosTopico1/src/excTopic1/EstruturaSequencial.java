@@ -7,7 +7,7 @@ public class EstruturaSequencial {
 
 	public static void main(String[] args) {
 		
-		Scanner input = new Scanner(System.in);
+//		Scanner input = new Scanner(System.in);
 		
 		/*System.out.print("Digite o tamanho da array: ");
 		int tam = input.nextInt();
@@ -87,27 +87,92 @@ public class EstruturaSequencial {
 		
 //		---------------------------------
 		
-		int A;
-		int B;
-		int C;
-		int D;
+//		int A;
+//		int B;
+//		int C;
+//		int D;
+//		
+//		System.out.print("A: ");
+//		A = input.nextInt();
+//		System.out.print("B: ");
+//		B = input.nextInt();
+//		System.out.print("C: ");
+//		C = input.nextInt();
+//		System.out.print("D: ");
+//		D = input.nextInt();
+//		
+//		int diferenca = (A * B) - (C * D);
+//		
+//		System.out.println("A diferença entre o produto de A/B e C/D é de: " + diferenca);
+//		
+//		--------------------------------------
 		
-		System.out.print("A: ");
-		A = input.nextInt();
-		System.out.print("B: ");
-		B = input.nextInt();
-		System.out.print("C: ");
-		C = input.nextInt();
-		System.out.print("D: ");
-		D = input.nextInt();
+//		Locale.setDefault(Locale.US);
+//		
+//		Scanner in = new Scanner(System.in);
+//		System.out.print("Digite a quantidade de funcionários: ");
+//		int qtd = in.nextInt();
+//		in.nextLine();
+//		
+//		String[] funcionario = new String[qtd];
+//		int[] horas = new int[qtd];
+//		float[] salario = new float[qtd];
+//		
+//	
+//		
+//		
+//		for(int i = 0; i < qtd; i++) {
+//			System.out.printf("Cadastro do funcinário %d\n\n", i + 1);
+//			System.out.printf("Digite o nome do funcionário numero %d: ", i + 1);
+//			funcionario[i] = in.nextLine(); 
+//			System.out.printf("Digite a qtd de horas que o funcionario trabalhou: ");
+//			horas[i] = in.nextInt();
+//			in.nextLine();
+//			System.out.println("Digite o salário do funcionário: ");
+//			salario[i] = in.nextFloat();
+//			in.nextLine();
+//		}
+//		
+//		for(int i = 0;i < qtd; i++) {
+////			System.out.println("O funcionário " + funcionario[i] + "recebe R$" + (horas[i] * salario[i]));
+//			System.out.printf("O funcionário %s recebe R$%.2f", funcionario[i], (horas[i] * salario[i]));
+//		}
+//		
 		
-		int diferenca = (A * B) - (C * D);
+//		-------------------------
 		
-		System.out.println("A diferença entre o produto de A/B e C/D é de: " + diferenca);
+		Locale.setDefault(Locale.US);
+		
+		Scanner in = new Scanner(System.in);
+		
+		System.out.print("Quantidade de peças: ");
+		int qtd = in.nextInt();
+		
+		int[] codPecas = new int[qtd];
+		int[] qtdPecas = new int[qtd];
+		float[] valor = new float[qtd];
+		float totalValor = 0;
+
+		
+		for(int i = 0; i < qtd; i++) {
+			System.out.print("Digite o código da peça n°"+ (i + 1) + ": ");
+			codPecas[i] = in.nextInt();
+			
+			System.out.print("Digite a quantidade de peças em estoque: ");
+			qtdPecas[i] = in.nextInt();
+			
+			System.out.print("Digite o valor das peças: ");
+			valor[i] = in.nextFloat();
+			
+			totalValor += qtdPecas[i] * valor[i];
+			
+			
+		}
+		
+		System.out.printf("Valor total a pagar: R$%.2f", totalValor);
 		
 		
-		
-		
+		in.close();
 	}
 
 }
