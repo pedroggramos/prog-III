@@ -207,6 +207,76 @@ public class ExcTwo {
 //			System.out.printf("Renda: R$%.2f\n", renda - imposto);
 //		}
 		
+//		------------------------------
+		
+//		
+//		System.out.print("Digite o valor de minutos: ");
+//		int min = input.nextInt();
+//		float conta = 50;
+//		
+//		if(min > 100) {
+//			conta += (min - 100) * 2;
+//			System.out.printf("Valor da conta é de R$%.2f", conta);
+//		}
+//		else {
+//			System.out.printf("Valor da conta é de R$%.2f", conta);
+//		}
+		
+//		------------------------------
+//		int cont = 0;
+//		float valor = 0;
+//		while(true) {
+//			System.out.println("============Menu==========\n" + "1 - Hamburguer: R$17,00\n" + "2 - Guaravita: R$02,00\n"
+//					+ "3 - Batata Frita: R$09,00\n" + "4 - Cachorro Quente: R$12,00");
+//
+//			System.out.print("Digite qual produto deseja: ");
+//			int p = input.nextInt();
+//			
+//			while (!(p > 0 && p <= 4)) {
+//				System.out.print("Inválido! Digite um valor entre 1 e 4: ");
+//				p = input.nextInt();
+//			}
+//			cont += 1;
+//			
+//			switch(p) {
+//			case 1:
+//				valor += 17.00;
+//				break;
+//			case 2:
+//				valor += 2;
+//				break;
+//			case 3:
+//				valor += 9;
+//				break;
+//			case 4:
+//				valor += 12;
+//				break;
+//			default:
+//				System.out.println("Valor inválido! Digite o correto.");
+//				break;
+//			}
+//			
+//			input.nextLine();
+//			System.out.printf("%d itens já adicionados somando um valor de R$%.2f!\nDeseja adicionar algo mais?: ", cont, valor);
+//			
+//			String resposta = input.nextLine().trim().toLowerCase();
+//			
+//			while(!resposta.equals("sim") && !resposta.equals("s") && !resposta.equals("nao") && !resposta.equals("não") && !resposta.equals("n")) {
+//		        System.out.print("Inválido, escreva 'Sim' ou 'Não': ");
+//		        resposta = input.nextLine().trim().toLowerCase();
+//		    }
+//			
+//			if(resposta.equals("sim") || resposta.equals("s")) {
+//				System.out.println("Continuando...\n");
+//				continue;
+//			}
+//			else {
+//				System.out.println("Encerrando Pedido....\n\n PEDIDO COMPLETO!");
+//				break;
+//			}
+//		}
+//		
+		input.close();
 		
 		
 		
