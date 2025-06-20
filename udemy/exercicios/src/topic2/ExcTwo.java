@@ -1,5 +1,6 @@
 package topic2;
 
+import java.util.ArrayList;
 import java.util.Locale;
 import java.util.Scanner;
 
@@ -276,8 +277,120 @@ public class ExcTwo {
 //			}
 //		}
 //		
-		input.close();
+//		input.close();
 		
+		
+		
+//		-------------------
+		
+	System.out.print("Quantos pedidos serão realizados?: ");
+	int qtd = input.nextInt();
+	
+	int[] pedidos = new int[qtd];
+	float[] valorTotal = new float[qtd];
+	int op = 0;
+	boolean entradaValida;
+	ArrayList<ArrayList<String>> produtosPorPedido = new ArrayList<>();
+
+	
+	input.nextLine();
+		
+	for(int i = 0; i < pedidos.length; i++) {
+		ArrayList<String> produtos = new ArrayList<>();
+		String continuar = null;
+		 entradaValida = false;
+			do{
+				entradaValida = false;
+				do {
+				System.out.print("=============MENU============\n\n1 - Hamburguer - R$10,00\n"
+						+ "2 - Refrigerante - R$6,00\n"
+						+ "3 - Batata Frita(P - R$10, M - R$14, G - R$20)\n"
+						+ "4 - Finalizar Pedido\n");
+						System.out.printf("\nDigite um produto para o pedido N°%d: ", i + 1);
+						String entrada = input.nextLine();
+					
+				
+					try {
+						op = Integer.parseInt(entrada);
+							
+						if(op != 1 && op != 2 && op != 3 && op != 4){
+							System.out.println("Digite um valor válido.");
+						}
+						else{
+							entradaValida = true;
+						}
+					}catch(NumberFormatException e){
+						System.out.print("Digite um número válido(somente numeros).\n\n");
+					}
+				}while(!entradaValida);
+						
+				
+				switch(op) {
+				case 1:
+					valorTotal[i] += 10.00;
+					System.out.println("Hamburguer adicionado com sucesso!");
+					produtos.add("Hamburguer");
+					break;
+				case 2:
+					valorTotal[i] += 6.00;
+					System.out.println("Refrigerante adicionado com sucesso!");
+					produtos.add("Refrigerante");
+					break;
+				case 3:
+					System.out.print("Digite o tamanho da batata: ");
+					String tam = input.nextLine().trim().toLowerCase();
+					
+					while(!tam.equals("p") && !tam.equals("pequeno") && !tam.equals("pequena") && !tam.equals("m") && !tam.equals("medio") && !tam.equals("médio") && !tam.equals("média") && !tam.equals("media") && !tam.equals("g") && !tam.equals("grande")) {
+						System.out.print("Digite um tamanho válido: ");
+						tam = input.nextLine().trim().toLowerCase();
+					}
+					if(tam.equals("p") || tam.equals("pequeno") || tam.equals("pequena")) {
+						valorTotal[i] += 10.00;
+						System.out.println("Batata pequena adicionada!");
+						produtos.add("Batata Pequena");
+					}
+					else if(tam.equals("m") || tam.equals("medio") || tam.equals("médio") || tam.equals("média") || tam.equals("media")) {
+						valorTotal[i] += 14.00;
+						System.out.println("Batata média adicionada!");
+						produtos.add("Batata Média");
+					}
+					else{
+						valorTotal[i] += 20.00;
+						System.out.println("Batata grande adicionada!");
+						produtos.add("Batata Grande");
+					}
+					break;
+				case 4:
+					if(pedidos.length > 1) {
+						System.out.println("Pedidos finalizados com sucesso!");
+					}
+					else {
+						System.out.println("Pedido Finalizado com sucesso!");
+					}
+					break;
+				}
+				
+				System.out.printf("Valor até agora do pedido n°%d: R$%.2f\n", i + 1, valorTotal[i]);
+			    System.out.print("Itens até o momento: ");
+			    for (String item : produtos) {
+			        System.out.print(item + ", ");
+			    }
+			    System.out.println();
+			    System.out.print("Deseja adicionar mais itens a este pedido? (sim/não): ");
+				continuar = input.nextLine().toLowerCase();
+			
+			}while(continuar.equals("sim")|| continuar.equals("s")|| continuar.equals("yes"));
+			produtosPorPedido.add(produtos);
+	}
+	
+	
+	
+	if(pedidos.length > 1) {
+		System.out.println("Atendimentos finalizados com sucesso!");
+	}
+	else {
+		System.out.println("Atendimento Finalizado com sucesso!");
+	}
 		
 		
 		

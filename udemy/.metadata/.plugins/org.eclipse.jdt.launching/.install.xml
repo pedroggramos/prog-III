@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <dirs>
-    <entry loc="C:\Users\pege1\Downloads\eclipse-jee-2024-12-R-win32-x86_64\eclipse\plugins\org.eclipse.justj.openjdk.hotspot.jre.full.win32.x86_64_21.0.5.v20241023-1957\jre" stamp="1740006204540"/>
+    <entry loc="C:\Program Files\Java\jre-1.8" stamp="1735952950924"/>
+    <entry loc="C:\Users\pege1\Downloads\eclipse-jee-2024-12-R-win32-x86_64\eclipse\plugins\org.eclipse.justj.openjdk.hotspot.jre.full.win32.x86_64_21.0.5.v20241023-1957\jre" stamp="1749840898070"/>
     <entry loc="C:\Program Files\Eclipse Adoptium\jdk-21.0.6.7-hotspot" stamp="1740448113206"/>
+    <entry loc="C:\Program Files\Java\jdk-21" stamp="1746657819994"/>
     <entry loc="C:\Users\pege1\Downloads\eclipse-jee-2024-12-R-win32-x86_64\eclipse\plugins\org.eclipse.justj.openjdk.hotspot.jre.full.win32.x86_64_21.0.5.v20241023-1957" stamp="1740006189563"/>
 </dirs>
