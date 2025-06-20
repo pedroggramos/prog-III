@@ -1,7 +1,9 @@
 package topic2;
 
 import java.util.ArrayList;
+import java.util.LinkedHashMap;
 import java.util.Locale;
+import java.util.Map;
 import java.util.Scanner;
 
 public class ExcTwo {
@@ -290,13 +292,13 @@ public class ExcTwo {
 	float[] valorTotal = new float[qtd];
 	int op = 0;
 	boolean entradaValida;
-	ArrayList<ArrayList<String>> produtosPorPedido = new ArrayList<>();
+	ArrayList<Map<String, Integer>> produtosPorPedido = new ArrayList<>();
 
 	
 	input.nextLine();
 		
 	for(int i = 0; i < pedidos.length; i++) {
-		ArrayList<String> produtos = new ArrayList<>();
+		Map<String, Integer> produtos = new LinkedHashMap<>();
 		String continuar = null;
 		 entradaValida = false;
 			do{
@@ -329,12 +331,12 @@ public class ExcTwo {
 				case 1:
 					valorTotal[i] += 10.00;
 					System.out.println("Hamburguer adicionado com sucesso!");
-					produtos.add("Hamburguer");
+					adicionarProduto(produtos, "Hamburguer");
 					break;
 				case 2:
 					valorTotal[i] += 6.00;
 					System.out.println("Refrigerante adicionado com sucesso!");
-					produtos.add("Refrigerante");
+					adicionarProduto(produtos, "Refrigerante");
 					break;
 				case 3:
 					System.out.print("Digite o tamanho da batata: ");
@@ -347,54 +349,52 @@ public class ExcTwo {
 					if(tam.equals("p") || tam.equals("pequeno") || tam.equals("pequena")) {
 						valorTotal[i] += 10.00;
 						System.out.println("Batata pequena adicionada!");
-						produtos.add("Batata Pequena");
+						adicionarProduto(produtos, "Batata Pequena");
 					}
 					else if(tam.equals("m") || tam.equals("medio") || tam.equals("médio") || tam.equals("média") || tam.equals("media")) {
 						valorTotal[i] += 14.00;
 						System.out.println("Batata média adicionada!");
-						produtos.add("Batata Média");
+						adicionarProduto(produtos, "Batata Média");
 					}
 					else{
 						valorTotal[i] += 20.00;
 						System.out.println("Batata grande adicionada!");
-						produtos.add("Batata Grande");
+						adicionarProduto(produtos, "Batata Grande");
 					}
 					break;
 				case 4:
-					if(pedidos.length > 1) {
-						System.out.println("Pedidos finalizados com sucesso!");
-					}
-					else {
-						System.out.println("Pedido Finalizado com sucesso!");
-					}
-					break;
+					 System.out.printf("Pedido nº %d finalizado!\n", i + 1);
+					    continuar = "nao";
+					    break;
 				}
 				
 				System.out.printf("Valor até agora do pedido n°%d: R$%.2f\n", i + 1, valorTotal[i]);
 			    System.out.print("Itens até o momento: ");
-			    for (String item : produtos) {
-			        System.out.print(item + ", ");
-			    }
+			    for (Map.Entry<String, Integer> entry : produtos.entrySet()) {
+                    System.out.printf("- %s: %d unidade(s)\n", entry.getKey(), entry.getValue());
+                }
 			    System.out.println();
 			    System.out.print("Deseja adicionar mais itens a este pedido? (sim/não): ");
 				continuar = input.nextLine().toLowerCase();
 			
-			}while(continuar.equals("sim")|| continuar.equals("s")|| continuar.equals("yes"));
-			produtosPorPedido.add(produtos);
-	}
-	
-	
-	
-	if(pedidos.length > 1) {
-		System.out.println("Atendimentos finalizados com sucesso!");
-	}
-	else {
-		System.out.println("Atendimento Finalizado com sucesso!");
-	}
-		
-		
-		
-		
+			 } while (continuar.equals("sim") || continuar.equals("s") || continuar.equals("yes"));
 
-	}
+            produtosPorPedido.add(produtos);
+        }
+
+        if (pedidos.length > 1) {
+            System.out.println("Atendimentos finalizados com sucesso!");
+        } else {
+            System.out.println("Atendimento Finalizado com sucesso!");
+        }
+
+        input.close();
+    }
+
+    
+    private static void adicionarProduto(Map<String, Integer> produtos, String nome) {
+        produtos.put(nome, produtos.getOrDefault(nome, 0) + 1);
+    }
 }
+
+
